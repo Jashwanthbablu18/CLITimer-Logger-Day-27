@@ -1,0 +1,55 @@
+Decorators.py
+=> logger Decorator:- 
+- logger(func) is a decorator function that takes another function func as its argument.
+- Wrapper Function: Inside logger, a new function wrapper(*args, kwargs) is defined. This wrapper function will be called in 
+  place of the original function.
+- Logging:
+  - Before calling the original function, it displays a message indicating that the function is running, along with its name, positional 
+    arguments (args), and keyword arguments (kwargs).
+  - The original function is then called with the provided arguments and its result is stored in result.
+  - After the function call, it logs the result returned by the function.
+  - It also displays a separator line for better readability between logs.
+- Return: The wrapper function returns the result of the original function call.
+- Decorator Application: When applied to a function, logger will replace that function with wrapper, which logs details before 
+  and after executing the original function.
+=>timer Decorator:-
+- timer(func) is a decorator function that takes another function func as its argument.
+- Wrapper Function: Inside timer, a new function wrapper(*args, kwargs) is defined. This wrapper will replace the original 
+  function.
+- Timing:
+  - It records the start time using time.time() before calling the original function.
+  - The original function is called with the given arguments, and its result is stored in result.
+  - After the function call, it records the end time.
+  - It calculates the execution time by subtracting the start time from the end time.
+  - It then displays out the execution time in seconds with four decimal places of precision.
+- Return: The wrapper function returns the result of the original function call.
+
+
+
+Day-27Code.py
+1. Imports:
+   - It imports timer and logger decorators from Decorators.py file. These decorators are used to add extra behavior to the bubble_sort 
+     function without modifying its core logic.
+2. Decorators:
+   - Decorators are a way to modify or enhance functions. In this code, the decorators are applied to bubble_sort in a chained manner. 
+     This means:
+     - The timer decorator is applied first, which likely measures and reports the time taken to execute the bubble_sort function.
+     - The logger decorator is applied next, which probably logs information about the function call, such as inputs, outputs, or 
+       execution details.
+3. Bubble Sort Function:
+   - The bubble_sort function implements the bubble sort algorithm, which is a simple sorting technique.
+   - It sorts an array by repeatedly stepping through the list, comparing adjacent elements, and swapping them if they are in the wrong 
+     order.
+   - This process is repeated for each element until the list is sorted.
+4. Main Function:
+   - The main function is defined to test the bubble_sort function.
+   - It initializes a test array, displays the original unsorted array, calls the bubble_sort function to sort it, and then displays the 
+     sorted array.
+5. Execution:
+   - if __name__ == "__main__": This block ensures that the main function is only executed when the script is run directly, not when 
+     it is imported as a module.
+   - This makes it easy to use the script as both a standalone program and a module in other projects.
+
+What I've learnt:
+-  Applying multiple decorators to a single function. This is useful when we want to modularly apply multiple layers of functionality—like 
+   logging, timing, access control, or caching—without altering the core function.
